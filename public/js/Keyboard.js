@@ -7,30 +7,32 @@ export default class Keyboard {
     this.keyMap = new Map();
   }
 
-  addKeyMapping(keyCode, keyCallback) {
-    this.keyMap.set(keyCode, keyCallback);
+  addKeyMapping(code, callback) {
+    this.keyMap.set(code, callback);
   }
 
   handleEvent(event) {
-    const { keyCode } = event;
-    if (!this.keyMap.has(keyCode)) {
-      return false;
+    const { code } = event;
+
+    if (!this.keyMap.has(code)) {
+      return;
     }
 
     event.preventDefault();
 
     const keyState = event.type === 'keydown' ? PRESSED : RELEASED;
 
-    if (this.keyStates.get(keyCode) === keyState) {
+    if (this.keyStates.get(code) === keyState) {
       return;
     }
 
-    this.keyStates.set(keyCode, keyState);
-    this.keyMap.get(keyCode)(keyState);
+    this.keyStates.set(code, keyState);
+
+    this.keyMap.get(code)(keyState);
   }
 
   listenTo(window) {
-    ['keyup', 'keydown'].forEach(eventName => {
+    ['keydown', 'keyup'].forEach(eventName => {
       window.addEventListener(eventName, event => {
         this.handleEvent(event);
       });
