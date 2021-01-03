@@ -18,8 +18,8 @@ export function createBgLayer(bgs, sprites) {
   };
 }
 
-export function createSpriteLayer(sprite) {
+export function createSpriteLayer(sprites) {
   return context => {
-    sprite.draw(context);
+    sprites.forEach(sprite => sprite.draw(context))
   };
 }
