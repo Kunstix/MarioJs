@@ -14,4 +14,8 @@ The idea of this project is to recreate the game Mario Super Bros exclusively wi
 
 ## Current state
 
-![alt text](bouncing/ball.gif?raw=true)
+![alt text](bouncing/mariojs.gif?raw=true)
+
+## Deployment
+
+Currently none
