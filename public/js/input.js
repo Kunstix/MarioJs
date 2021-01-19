@@ -12,11 +12,11 @@ export function initKeyboard(entity) {
   });
 
   keyBoard.addKeyMapping('ArrowRight', keyState => {
-    entity.go.dir = keyState;
+    entity.walk.dir = keyState;
   });
 
   keyBoard.addKeyMapping('ArrowLeft', keyState => {
-    entity.go.dir = -keyState;
+    entity.walk.dir = -keyState;
   });
 
   return keyBoard;

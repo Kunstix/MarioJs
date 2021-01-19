@@ -1,6 +1,6 @@
 import { Trait } from '../Entity.js';
 
-export default class Go extends Trait {
+export default class Walk extends Trait {
   constructor() {
     super('walk');
 
